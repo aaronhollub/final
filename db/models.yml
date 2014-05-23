@@ -1,3 +1,43 @@
+User:
+  - username: string
+  - password: string
+  - name: string
+
+Project:
+  - project_name: string
+  - project_address: string
+  - summary: text
+  - user_id: integer
+
+Update:
+  - summary: text
+  - project_id: integer
+  - user_id: integer
+  - created_at: datetime
+
+Gantt:
+  - gantt_url: string
+  - project_id: integer
+  - created_at: datetime
+
+Photo:
+  - photo_url: string
+  - caption: text
+  - created_at: datetime
+  - project_id: integer
+
+Comment:
+  - summary: text
+  - project_id: integer
+  - user_id: integer
+  - created_at: datetime
+
+File:
+  - file_url: string
+  - summary: text
+  - project_id: integer
+  - created_at: datetime
+
 # Example table for a typical Book model.
 #
 # Book:
