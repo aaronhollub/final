@@ -25,4 +25,21 @@ Rails.application.routes.draw do
   # --- Delete
   delete "/users/:id" => 'users#destroy'
 
+    # Resource: Projects
+
+  # --- Create
+  get "/projects/new" => 'projects#new'
+  post "/projects" => 'projects#create'
+
+  # --- Read
+  get "/projects" => 'projects#index'
+  get "/projects/:id" => 'projects#show'
+
+  # -- Update
+  get "/projects/:id/edit" => 'projects#edit'
+  patch "/projects/:id" => 'projects#update'
+
+  # --- Delete
+  delete "/projects/:id" => 'projects#destroy'
+
 end
