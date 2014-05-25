@@ -1,52 +1,83 @@
 <% users = User.find_by("id" => cookies["user_id"]) %>
-
 <% projects = Project.where("user_id" => users["id"]) %>
 
-  <% projects.each do |project| %>
+<% projects.each do |project| %>
+<% projectid = project.id %>
 
-    <% projectid = project.id %>
+<HR>
 
-    <div class="row">
-      <div class="col-md-9">
-        <h3><%= project["project_name"] %></h3>
+<div class="row">
+
+  <div class="col-md-8">
+
+      <div class="row">
+        <div class="col-md-8">
+          <h1><%= project["project_name"] %></h1>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+      <div class="row">
+        <div class="col-md-8">
+          <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+      <div class="row">
+        <div class="col-md-8">
+          <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+        </div>
       </div>
-    </div>
 
       <% gantts = Gantt.where("project_id" => project.id) %>
-
       <% gantts.each do |gantt| %>
 
-        <div class="row">
-          <div class="col-md-6">
-            <h4><font color="#e44628">Project Status: </font></h4>
-              <%= image_tag(gantt["gantt_url"], :width => 750) %>
-          </div>
+      <div class="row">
+        <div class="col-md-8">
+          <h4><font color="#e44628">Project Status: </font></h4>
+            <%= image_tag(gantt["gantt_url"], :width => 600) %>
         </div>
+      </div>
 
       <% end %>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h4><font color="#e44628">Recent Photos: </font></h4>
-          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
-          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
-          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
+      <div class="row">
+        <div class="col-md-8">
+          <h4><font color="#e44628">Recent Photos: </font></h4>
+            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 160) %>
+            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 160) %>
+            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 160) %>
+        </div>
       </div>
-    </div>
 
-    <HR>
+  </div>
 
-  <% end %>
+  <div class="col-md-4 well aside">
 
+    <h3>Contractor Comments</h3>
+
+      <ul>
+        <li>Comment</li>
+        <li>Comment</li>
+        <li>Comment</li>
+      </ul>
+
+  </div>
+
+  <HR>
+
+  <div class="col-md-4 well aside">
+
+    <h3>Client Comments</h3>
+
+      <ul>
+        <li>Comment</li>
+        <li>Comment</li>
+        <li>Comment</li>
+      </ul>
+  </div>
+
+</div>
+
+<HR>
+
+<% end %>
