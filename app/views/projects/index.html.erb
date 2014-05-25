@@ -1,1 +1,52 @@
-<h1>Hollub Residence: 10901 SW 69th Ave Road</h1>
+<% users = User.find_by("id" => cookies["user_id"]) %>
+
+<% projects = Project.where("user_id" => users["id"]) %>
+
+  <% projects.each do |project| %>
+
+    <% projectid = project.id %>
+
+    <div class="row">
+      <div class="col-md-9">
+        <h3><%= project["project_name"] %></h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+      </div>
+    </div>
+
+      <% gantts = Gantt.where("project_id" => project.id) %>
+
+      <% gantts.each do |gantt| %>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h4><font color="#e44628">Project Status: </font></h4>
+              <%= image_tag(gantt["gantt_url"], :width => 750) %>
+          </div>
+        </div>
+
+      <% end %>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4><font color="#e44628">Recent Photos: </font></h4>
+          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
+          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
+          <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 250) %>
+      </div>
+    </div>
+
+    <HR>
+
+  <% end %>
+

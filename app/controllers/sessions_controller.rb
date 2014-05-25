@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     if the_user != nil
       if the_user["password"] == params["password"]
         cookies["user_id"] = the_user["id"]
-        redirect_to "/", :notice => "Wazzzup"
+        redirect_to "/", :notice => "Welcome to the Client Connection Portal"
       else
         logger.debug "Wazzzzup!"
         redirect_to "/login", :notice => "Unknown password."

@@ -1,0 +1,19 @@
+<% gantt = Gantt.find_by("id" => params["id"]) %>
+
+<h1>Edit Gantt Chart #<%= gantt["id"] %></h1>
+
+<%= form_tag "/gantts#{gantt["id"]}", "method" => "patch" %>
+
+  <p>
+    <%= label_tag "url", "What is the URL for the Gantt chart?" %>
+    <%= text_field_tag "url", gantt["gantt_url"] %>
+  </p>
+
+  <p>
+    <%= label_tag "project", "What project ID is this chart associated with?" %>
+    <%= text_field_tag "project", actor["project_id"] %>
+  </p>
+
+  <%= submit_tag %> or <%= link_to "Cancel", "/projects" %>
+
+</form>

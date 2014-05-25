@@ -42,4 +42,22 @@ Rails.application.routes.draw do
   # --- Delete
   delete "/projects/:id" => 'projects#destroy'
 
+  # Resource: gantts
+
+  # --- Create
+  get "/gantts/new" => 'gantts#new'
+  post "/gantts" => 'gantts#create'
+
+  # --- Read
+  get "/gantts" => 'gantts#index'
+  get "/gantts/:id" => 'gantts#show'
+
+  # -- Update
+  get "/gantts/:id/edit" => 'gantts#edit'
+  patch "/gantts/:id" => 'gantts#update'
+
+  # --- Delete
+  delete "/gantts/:id" => 'gantts#destroy'
+
+
 end
