@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Sign-In and Sign-Out
 
   get "/login" => 'sessions#login'
+  get "/logout" => 'sessions#logout'
   post "/authenticate" => 'sessions#authenticate'
 
   # Resource: Users
