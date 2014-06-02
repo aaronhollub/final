@@ -1,13 +1,8 @@
-<% if cookies["account_type"] == "admin" then %>
-
-<h2> Admin - View All Projects </h2>
-
-<% projects = Project.order("created_at desc") %>
+<% users = User.find_by("id" => cookies["user_id"]) %>
+<% projectsid = params["id"] %>
+<% projects = Project.where("id" => projectsid) %>
 
 <% projects.each do |project| %>
-<% projectid = project.id %>
-
-<HR>
 
 <div class="row">
 
@@ -16,8 +11,10 @@
       <div class="row">
         <div class="col-md-12">
           <h2><%= project["project_name"] %></h2>
-            (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
-            (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
+            <% if cookies["account_type"] == "admin" then %>
+              (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+              (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
+            <% end %>
         </div>
       </div>
 
@@ -37,34 +34,38 @@
       <% gantts = gantts.order("created_at desc").limit(1) %>
       <% gantts.each do |gantt| %>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Project Status: </font></h4>
-              (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
-              (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
-              <br>
-            <%= image_tag(gantt["gantt_url"], :width => 660) %>
+        <div class="row">
+          <div class="col-md-12">
+            <h4><font color="#e44628">Project Status: </font></h4>
+              <% if cookies["account_type"] == "admin" then %>
+                (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
+                (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
+                <br>
+              <% end %>
+              <%= image_tag(gantt["gantt_url"], :width => 660) %>
+          </div>
         </div>
-      </div>
 
       <% end %>
 
       <div class="row">
         <div class="col-md-12">
           <h4><font color="#e44628">Recent Photos: </font></h4>
-            <% photos = Photo.where("project_name" => project["project_name"]) %>
-            <% photos = photos.order("created_at desc").limit(5) %>
-            <% photos.each do |photo| %>
 
-              (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
-              (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
-              <br>
-              <%= image_tag(photo["photo_url"], :width => 375) %>
-              <%= photo["caption"] %>
-
+          <% photos = Photo.where("project_name" => project["project_name"]) %>
+          <% photos = photos.order("created_at desc").limit(5) %>
+          <% photos.each do |photo| %>
+              <% if cookies["account_type"] == "admin" then %>
+                (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
+                (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
+                <br>
+              <% end %>
+            <%= image_tag(photo["photo_url"], :width => 375) %>
+            <%= photo["caption"] %>
             <br><br>
 
           <% end %>
+
         </div>
       </div>
 
@@ -78,7 +79,7 @@
 
   <div class="col-md-4 well aside">
 
-    <h3>Contractor Comments</h3>
+    <h4>Contractor Comments</h4>
 
       <ul>
         <li>Comment</li>
@@ -95,7 +96,7 @@
 
   <div class="col-md-4 well aside">
 
-    <h3>Client Comments</h3>
+    <h4>Client Comments</h4>
 
       <ul>
         <li>Comment</li>
@@ -109,11 +110,6 @@
 
 </div>
 
-<% end %>
-
-<% else %>
-
-  <h3><%= "You are not authorized to view this page. Please go back" %></h3>
+<hr>
 
 <% end %>
-

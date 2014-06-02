@@ -1,8 +1,23 @@
 <% users = User.find_by("id" => cookies["user_id"]) %>
-<% projects = Project.where("client_name" => users["client_name"]) %>
+
+<% if cookies["account_type"] == "admin" then %>
+
+  <% projects = Project.order("created_at desc") %>
+
+    <h2>Admin View - All Projects</h2>
+
+  <% else %>
+
+    <% projects = Project.where("client_name" => users["client_name"]) %>
+    <% projects = projects.order("created_at desc") %>
+
+    <h2>My Projects</h2>
+
+<% end %>
+
+<hr>
 
 <% projects.each do |project| %>
-<% projectid = project.id %>
 
 <div class="row">
 
@@ -11,6 +26,10 @@
       <div class="row">
         <div class="col-md-12">
           <h2><%= project["project_name"] %></h2>
+            <% if cookies["account_type"] == "admin" then %>
+              (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+              (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
+            <% end %>
         </div>
       </div>
 
@@ -26,77 +45,12 @@
         </div>
       </div>
 
-      <% gantts = Gantt.where("project_name" => project["project_name"]) %>
-      <% gantts = gantts.order("created_at desc").limit(1) %>
-      <% gantts.each do |gantt| %>
+      <a href="/projects/<%= project["id"] %>"><button type="button" class="btn btn-info"> View This Project </button></a>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Project Status: </font></h4>
-            <%= image_tag(gantt["gantt_url"], :width => 660) %>
-        </div>
-      </div>
+      <HR>
 
-      <% end %>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Recent Photos: </font></h4>
-
-          <% photos = Photo.where("project_name" => project["project_name"]) %>
-          <% photos = photos.order("created_at desc").limit(5) %>
-          <% photos.each do |photo| %>
-
-            <%= image_tag(photo["photo_url"], :width => 375) %>
-            <%= photo["caption"] %>
-            <br><br>
-
-          <% end %>
-
-        </div>
-      </div>
-
-  </div>
-
-  <div class="col-md-4 well aside">
-
-    <h4><%= link_to "Add A New Comment", "/updates/new" %></h4>
-
-  </div>
-
-  <div class="col-md-4 well aside">
-
-    <h4>Contractor Comments</h4>
-
-      <ul>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-      </ul>
-
-  </div>
-
-  <HR>
-
-  <div class="col-md-4 well aside">
-
-    <h4>Client Comments</h4>
-
-      <ul>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-      </ul>
   </div>
 
 </div>
-
-<hr>
 
 <% end %>
