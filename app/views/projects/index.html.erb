@@ -44,9 +44,17 @@
       <div class="row">
         <div class="col-md-12">
           <h4><font color="#e44628">Recent Photos: </font></h4>
-            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 220) %>
-            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 220) %>
-            <%= image_tag("https://static.squarespace.com/static/534f4da8e4b0e68461b1d345/t/537b9196e4b0397c4f642981/1400607174606/Hollub-Homes-Custom-Home-Pinecrest-Modern.jpg?format=1500w", :width => 220) %>
+
+          <% photos = Photo.where("project_name" => project["project_name"]) %>
+          <% photos = photos.order("created_at desc").limit(5) %>
+          <% photos.each do |photo| %>
+
+            <%= image_tag(photo["photo_url"], :width => 375) %>
+            <%= photo["caption"] %>
+            <br><br>
+
+          <% end %>
+
         </div>
       </div>
 

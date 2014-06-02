@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   # --- Delete
   delete "/projects/:id" => 'projects#destroy'
 
-  # Resource: gantts
+  # Resource: Gantts
 
   # --- Create
   get "/gantts/new" => 'gantts#new'
@@ -63,6 +63,23 @@ Rails.application.routes.draw do
 
   # --- Delete
   delete "/gantts/:id" => 'gantts#destroy'
+
+  # Resource: Photos
+
+  # --- Create
+  get "/photos/new" => 'photos#new'
+  post "/photos" => 'photos#create'
+
+  # --- Read
+  get "/photos" => 'photos#index'
+  get "/photos/:id" => 'photos#show'
+
+  # -- Update
+  get "/photos/:id/edit" => 'photos#edit'
+  patch "/photos/:id" => 'photos#update'
+
+  # --- Delete
+  delete "/photos/:id" => 'photos#destroy'
 
 
 end
