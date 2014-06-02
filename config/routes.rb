@@ -81,5 +81,23 @@ Rails.application.routes.draw do
   # --- Delete
   delete "/photos/:id" => 'photos#destroy'
 
+  # Resource: Updates
+
+  # --- Create
+  get "/updates/new" => 'updates#new'
+  post "/updates" => 'updates#create'
+
+  # --- Read
+  get "/updates" => 'updates#index'
+  get "/updates/:id" => 'updates#show'
+
+  # -- Update
+  get "/updates/:id/edit" => 'updates#edit'
+  patch "/updates/:id" => 'updates#update'
+
+  # --- Delete
+  delete "/updates/:id" => 'updates#destroy'
+
+
 
 end

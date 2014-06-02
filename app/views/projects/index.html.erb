@@ -4,8 +4,6 @@
 <% projects.each do |project| %>
 <% projectid = project.id %>
 
-<HR>
-
 <div class="row">
 
   <div class="col-md-8">
@@ -62,7 +60,13 @@
 
   <div class="col-md-4 well aside">
 
-    <h3>Contractor Comments</h3>
+    <h4><%= link_to "Add A New Comment", "/updates/new" %></h4>
+
+  </div>
+
+  <div class="col-md-4 well aside">
+
+    <h4>Contractor Comments</h4>
 
       <ul>
         <li>Comment</li>
@@ -79,7 +83,7 @@
 
   <div class="col-md-4 well aside">
 
-    <h3>Client Comments</h3>
+    <h4>Client Comments</h4>
 
       <ul>
         <li>Comment</li>
@@ -92,5 +96,7 @@
   </div>
 
 </div>
+
+<hr>
 
 <% end %>
