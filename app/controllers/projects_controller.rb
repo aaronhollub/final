@@ -6,20 +6,20 @@ class ProjectsController < ApplicationController
   def destroy
     project = Project.find_by("id" => params["id"])
     project.delete
-    redirect_to "/admin"
+    redirect_to "/admin", :notice => "Project Deleted"
   end
 
   # Receive form submitted from /project/new
   def create
     Project.create("project_name" => params["name"], "project_address" => params["address"], "summary" => params["project_summary"], "client_name" => params["client_name"])
-    redirect_to "/admin"
+    redirect_to "/admin", :notice => "Project Successfully Added"
   end
 
   # Receive form submitted from /project/edit
   def update
     project = Project.find_by("id" => params["id"])
     project.update("project_name" => params["name"], "project_address" => params["address"], "summary" => params["project_summary"], "client_name" => params["client_name"])
-    redirect_to "/admin"
+    redirect_to "/admin", :notice => "Project Updated"
   end
 
 end
