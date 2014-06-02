@@ -4,11 +4,12 @@
 
 <% projects.each do |project| %>
 
-<% user_client_id = users["client_name"] %>
-<% project_client_id = project["client_name"] %>
+  <% user_client_id = users["client_name"] %>
+  <% project_client_id = project["client_name"] %>
 
-<% if user_client_id != project_client_id %>
-  <h4><%= "You Are Not Authorized To Access This Content" %><h4>
+  <% if user_client_id != project_client_id and cookies["account_type"] != "admin" %>
+
+    <h4><%= "You Are Not Authorized To Access This Content" %><h4>
 
   <% else %>
 
