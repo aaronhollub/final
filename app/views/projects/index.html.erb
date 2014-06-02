@@ -31,12 +31,17 @@
         </div>
       </div>
 
-      <% gantts = Gantt.where("project_id" => project.id) %>
+      <% gantts = Gantt.where("project_name" => project["project_name"]) %>
+      <% gantts = gantts.order("created_at desc").limit(1) %>
       <% gantts.each do |gantt| %>
 
       <div class="row">
         <div class="col-md-12">
           <h4><font color="#e44628">Project Status: </font></h4>
+            <% if cookies["account_type"] == "admin" then %>
+              <%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>
+              <br>
+            <% end %>
             <%= image_tag(gantt["gantt_url"], :width => 660) %>
         </div>
       </div>

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # Specify a custom home page
   get "/" => "home#index"
 
+  # Go to Admin Console
+  get "/admin" => "users/admin"
+
   # Sign-In and Sign-Out
 
   get "/login" => 'sessions#login'
