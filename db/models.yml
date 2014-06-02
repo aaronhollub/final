@@ -30,21 +30,8 @@ Photo:
   - caption: text
   - created_at: datetime
 
-File:
-  - file_url: string
-  - summary: text
-  - project_id: integer
-  - created_at: datetime
-
-# Example table for a typical Book model.
-#
-# Book:
-#   - title: string
-#   - price: integer
-#   - author: string
+# File:
+#   - file_url: string
 #   - summary: text
-#   - hardcover: boolean
-#
-# Follow the syntax exactly (colons and spacing are important).
-# Column type choices are: string, text, integer, and boolean.
-# You can have as many models as you want in this file.
+#   - project_id: integer
+#   - created_at: datetime

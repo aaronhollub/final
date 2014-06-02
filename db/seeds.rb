@@ -11,7 +11,7 @@ Project.create("project_name" => "Hollub Family Sarasota Condo Renovation", "pro
 
 Gantt.delete_all
 Gantt.create("gantt_url" => "http://www.mindtools.com/media/Diagrams/Gantt-Chart-Diagram-Figure-1small.jpg", "project_name" => "Hollub Family New Residence" )
-Gantt.create("gantt_url" => "http://www.matchware.com/images/special/gantt-chart-template-640.jpg", "project_name" => "Hollub Family Sarasota Condo Renovation" )
+Gantt.create("gantt_url" => "http://www.matchware.com/images/special/gantt-chart-template-640.jpg", "project_name" => "Burke Family Renovation" )
 
 Photo.delete_all
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/17/exterior%201.jpg", "project_name" => "Hollub Family New Residence" ,"caption" => "Front Entrance")

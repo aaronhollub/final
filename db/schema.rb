@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602032643) do
-
-  create_table "files", force: true do |t|
-    t.string   "file_url"
-    t.text     "summary"
-    t.integer  "project_id"
-    t.datetime "created_at"
-  end
+ActiveRecord::Schema.define(version: 20140602033138) do
 
   create_table "gantts", force: true do |t|
     t.string   "gantt_url"
