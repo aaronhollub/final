@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602035753) do
+ActiveRecord::Schema.define(version: 20140602040049) do
 
   create_table "gantts", force: true do |t|
     t.string   "gantt_url"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20140602035753) do
 
   create_table "updates", force: true do |t|
     t.text     "summary"
-    t.integer  "project_id"
     t.integer  "user_id"
     t.datetime "created_at"
+    t.integer  "project_name"
   end
 
   create_table "users", force: true do |t|

@@ -14,7 +14,7 @@ Project:
 
 Update:
   - summary: text
-  - project_id: integer
+  - project_name: integer
   - user_id: integer
   - created_at: datetime
 
