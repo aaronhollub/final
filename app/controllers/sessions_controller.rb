@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   def logout
     cookies["user_id"] = nil
     cookies["account_type"] = nil
+    cookies["current_project"] = nil
     redirect_to "/", :notice => "Thank you for using the Client Connection Portal!"
   end
 

@@ -2,6 +2,8 @@
 <% projectsid = params["id"] %>
 <% projects = Project.where("id" => projectsid) %>
 
+<% cookies["current_project"] = projectsid %>
+
 <% projects.each do |project| %>
 
   <% user_client_id = users["client_name"] %>

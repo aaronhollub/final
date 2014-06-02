@@ -9,8 +9,10 @@ class UpdatesController < ApplicationController
   # Receive form submitted from /updates/new
   def create
     user = cookies["user_id"]
-    client = coolkies["client_name"]
-    Update.create("summary" => params["summary"], "project_name" => params["project_name"], "user_id" => user)
+    the_project = cookies["current_project"]
+    the_project_id = Project.find_by("id" => the_project)
+    the_project_name = the_project_id["project_name"]
+    Update.create("summary" => params["summary"], "project_name" => the_project_name, "user_id" => user)
     redirect_to "/projects", :notice => "Comment Added"
   end
 
