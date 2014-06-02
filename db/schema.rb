@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602004617) do
-
-  create_table "comments", force: true do |t|
-    t.text     "summary"
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-  end
+ActiveRecord::Schema.define(version: 20140602024331) do
 
   create_table "files", force: true do |t|
     t.string   "file_url"
@@ -37,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140602004617) do
     t.string   "photo_url"
     t.text     "caption"
     t.datetime "created_at"
-    t.integer  "project_id"
+    t.string   "project_name"
   end
 
   create_table "projects", force: true do |t|

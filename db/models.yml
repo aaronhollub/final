@@ -17,6 +17,7 @@ Update:
   - project_id: integer
   - user_id: integer
   - created_at: datetime
+  - user_id: integer
 
 Gantt:
   - gantt_url: string
@@ -25,14 +26,8 @@ Gantt:
 
 Photo:
   - photo_url: string
+  - project_name: string
   - caption: text
-  - created_at: datetime
-  - project_id: integer
-
-Comment:
-  - summary: text
-  - project_id: integer
-  - user_id: integer
   - created_at: datetime
 
 File:
