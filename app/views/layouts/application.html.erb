@@ -40,7 +40,7 @@
               <%= user["name"] %> |
               <%= link_to "My Profile", "/users/#{user["id"]}" %> |
               <% if cookies["account_type"] == "admin" then %>
-                <%= link_to "Create New Project", "/projects/new" %> |
+                <%= link_to "Admin Console", "/admin" %> |
               <% end %>
               <%= link_to "My Projects", "/projects" %> |
               <%= link_to "Sign Out", '/logout' %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/" => "home#index"
 
   # Go to Admin Console
-  get "/admin" => "users/admin"
+  get "/admin" => "users#admin"
 
   # Sign-In and Sign-Out
 
@@ -37,7 +37,8 @@ Rails.application.routes.draw do
 
   # --- Read
   get "/projects" => 'projects#index'
-  get "/projects/:id" => 'projects#show'
+  get "/projects/all" => 'projects#show'
+  # get "/projects/:id" => 'projects#show'
 
   # -- Update
   get "/projects/:id/edit" => 'projects#edit'

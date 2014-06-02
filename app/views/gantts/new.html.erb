@@ -1,3 +1,5 @@
+<% if cookies["account_type"] == "admin" then %>
+
 <h2>Add A New Gantt Chart</h2>
 
 <br>
@@ -26,6 +28,14 @@
   </div>
 
 </form>
+
+<% else %>
+
+  <h3><%= "You are not authorized to view this page. Please go back" %></h3>
+
+<% end %>
+
+
 
 
 
