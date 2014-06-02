@@ -16,7 +16,8 @@
       <div class="row">
         <div class="col-md-12">
           <h1><%= project["project_name"] %></h1>
-            <%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>
+            (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+            (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
         </div>
       </div>
 
@@ -39,7 +40,8 @@
       <div class="row">
         <div class="col-md-12">
           <h4><font color="#e44628">Project Status: </font></h4>
-              <%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>
+              (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
+              (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
               <br>
             <%= image_tag(gantt["gantt_url"], :width => 660) %>
         </div>
@@ -54,7 +56,8 @@
             <% photos = photos.order("created_at desc").limit(5) %>
             <% photos.each do |photo| %>
 
-              <%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>
+              (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
+              (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
               <br>
               <%= image_tag(photo["photo_url"], :width => 375) %>
               <%= photo["caption"] %>
