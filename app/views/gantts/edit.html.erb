@@ -2,7 +2,7 @@
 
 <% gantt = Gantt.find_by("id" => params["id"]) %>
 
-<h1>Edit Gantt Chart For: <%= gantt["project_name"] %></h1>
+<h2>Edit Gantt Chart For: <%= gantt["project_name"] %></h2>
 
 <%= form_tag "/gantts/#{gantt["id"]}", "method" => "patch" %>
 
@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <%= submit_tag %> or <%= link_to "Cancel", "/projects" %>
+  <%= submit_tag %> or <%= link_to "Cancel", "/admin" %>
 
 </form>
 

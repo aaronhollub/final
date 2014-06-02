@@ -17,7 +17,6 @@ Update:
   - project_id: integer
   - user_id: integer
   - created_at: datetime
-  - user_id: integer
 
 Gantt:
   - gantt_url: string
