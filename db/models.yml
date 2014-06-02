@@ -2,12 +2,15 @@ User:
   - username: string
   - password: string
   - name: string
+  - account_type: string
+  - client_name: string
 
 Project:
   - project_name: string
   - project_address: string
   - summary: text
-  - user_id: integer
+  - client_name: string
+  - created_at: datetime
 
 Update:
   - summary: text
@@ -17,7 +20,7 @@ Update:
 
 Gantt:
   - gantt_url: string
-  - project_id: integer
+  - project_name: string
   - created_at: datetime
 
 Photo:

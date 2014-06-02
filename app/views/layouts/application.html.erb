@@ -39,6 +39,9 @@
             <% if user.present? %>
               <%= user["name"] %> |
               <%= link_to "My Profile", "/users/#{user["id"]}" %> |
+              <% if cookies["account_type"] == "admin" then %>
+                <%= link_to "Create New Project", "/projects/new" %> |
+              <% end %>
               <%= link_to "My Projects", "/projects" %> |
               <%= link_to "Sign Out", '/logout' %>
             <% else %>
@@ -48,10 +51,12 @@
           </div>
       </div>
 
+      <h5 class="text-warning" align="right"><%= notice %></h5>
+
       <%= yield %>
 
       <hr>
-      <h4 class="text-warning"><%= notice %></h4>
+<!--       <h4 class="text-warning"><%= notice %></h4> -->
 
     <div>
 

@@ -10,8 +10,8 @@
   </p>
 
   <p>
-    <%= label_tag "project", "What project ID is this chart associated with?" %>
-    <%= text_field_tag "project", actor["project_id"] %>
+    <%= label_tag "project", "What project is this chart associated with?" %>
+    <%= select_tag "project_name", options_from_collection_for_select(Project.read.order("project_name"), "project_name", "project_name"), "class" => "form-control" %>
   </p>
 
   <%= submit_tag %> or <%= link_to "Cancel", "/projects" %>

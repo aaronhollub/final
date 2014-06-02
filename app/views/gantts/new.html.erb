@@ -5,16 +5,17 @@
 <form class="form-horizontal" role="form" action="/gantts" method="post">
 
   <div class="form-group">
-    <label class="col-sm-2 control-label">Gantt URL</label>
+    <label class="col-sm-2 control-label">URL</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="url" placeholder="Some Address">
+      <input type="text" class="form-control" name="url" placeholder="Web Address of Gantt Image">
     </div>
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label">Project ID</label>
+    <label class="col-sm-2 control-label">Project Name</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="project" placeholder="Project ID">
+    <%= select_tag "project_name", options_from_collection_for_select(Project.read.order("project_name"), "project_name", "project_name"), "class" => "form-control" %>
+    <!--       <input type="text" class="form-control" name="project_name" placeholder="Project Name"> -->
     </div>
   </div>
 

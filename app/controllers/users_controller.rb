@@ -20,7 +20,7 @@ class UsersController < ApplicationController
                   "password" => params["password"],
                   "name" => params["name"])
 
-      redirect_to "/movies"
+      redirect_to "/", :notice => "Profile successfully created. Please log in!"
     else
       @message = "That username is taken.  Please try again."
       render "new"
@@ -28,11 +28,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    the_user = User.find_by(params["id"])
-    the_user.update("username" => params["username"],
-                "password" => params["password"],
-                "name" => params["name"])
-    redirect_to '/users/#{the_user["id"]}'
-  end
+    existing_user = User.find_by("username" => params["username"])
 
+    if existing_user == nil
+      the_user = User.find_by(params["id"])
+      the_user.update("username" => params["username"],
+                  "password" => params["password"],
+                  "name" => params["name"])
+      cookies["user_id"] = the_user["id"]
+
+      redirect_to '/', :notice => "Profile successfully updated."
+    else
+      @message = "That username is taken.  Please try again."
+      render "new"
+    end
+  end
 end
