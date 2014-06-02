@@ -38,7 +38,6 @@ Rails.application.routes.draw do
   # --- Read
   get "/projects" => 'projects#index'
   get "/projects/:id" => 'projects#show'
-  # get "/projects/:id" => 'projects#show'
 
   # -- Update
   get "/projects/:id/edit" => 'projects#edit'

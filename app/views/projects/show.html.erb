@@ -4,112 +4,122 @@
 
 <% projects.each do |project| %>
 
-<div class="row">
+<% user_client_id = users["client_name"] %>
+<% project_client_id = project["client_name"] %>
 
-  <div class="col-md-8">
+<% if user_client_id != project_client_id %>
+  <h4><%= "You Are Not Authorized To Access This Content" %><h4>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h2><%= project["project_name"] %></h2>
-            <% if cookies["account_type"] == "admin" then %>
-              (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
-              (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
-            <% end %>
-        </div>
-      </div>
+  <% else %>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
-        </div>
-      </div>
+  <div class="row">
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
-        </div>
-      </div>
-
-      <% gantts = Gantt.where("project_name" => project["project_name"]) %>
-      <% gantts = gantts.order("created_at desc").limit(1) %>
-      <% gantts.each do |gantt| %>
+    <div class="col-md-8">
 
         <div class="row">
           <div class="col-md-12">
-            <h4><font color="#e44628">Project Status: </font></h4>
+            <h2><%= project["project_name"] %></h2>
               <% if cookies["account_type"] == "admin" then %>
-                (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
-                (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
-                <br>
+                (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+                (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
               <% end %>
-              <%= image_tag(gantt["gantt_url"], :width => 660) %>
           </div>
         </div>
 
-      <% end %>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Recent Photos: </font></h4>
-
-          <% photos = Photo.where("project_name" => project["project_name"]) %>
-          <% photos = photos.order("created_at desc").limit(5) %>
-          <% photos.each do |photo| %>
-              <% if cookies["account_type"] == "admin" then %>
-                (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
-                (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
-                <br>
-              <% end %>
-            <%= image_tag(photo["photo_url"], :width => 375) %>
-            <%= photo["caption"] %>
-            <br><br>
-
-          <% end %>
-
+        <div class="row">
+          <div class="col-md-12">
+            <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+          </div>
         </div>
-      </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+          </div>
+        </div>
+
+        <% gantts = Gantt.where("project_name" => project["project_name"]) %>
+        <% gantts = gantts.order("created_at desc").limit(1) %>
+        <% gantts.each do |gantt| %>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h4><font color="#e44628">Project Status: </font></h4>
+                <% if cookies["account_type"] == "admin" then %>
+                  (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
+                  (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
+                  <br>
+                <% end %>
+                <%= image_tag(gantt["gantt_url"], :width => 660) %>
+            </div>
+          </div>
+
+        <% end %>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4><font color="#e44628">Recent Photos: </font></h4>
+
+            <% photos = Photo.where("project_name" => project["project_name"]) %>
+            <% photos = photos.order("created_at desc").limit(5) %>
+            <% photos.each do |photo| %>
+                <% if cookies["account_type"] == "admin" then %>
+                  (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
+                  (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
+                  <br>
+                <% end %>
+              <%= image_tag(photo["photo_url"], :width => 375) %>
+              <%= photo["caption"] %>
+              <br><br>
+
+            <% end %>
+
+          </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-4 well aside">
+
+      <h4><%= link_to "Add A New Comment", "/updates/new" %></h4>
+
+    </div>
+
+    <div class="col-md-4 well aside">
+
+      <h4>Contractor Comments</h4>
+
+        <ul>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+        </ul>
+
+    </div>
+
+    <HR>
+
+    <div class="col-md-4 well aside">
+
+      <h4>Client Comments</h4>
+
+        <ul>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+          <li>Comment</li>
+        </ul>
+    </div>
 
   </div>
 
-  <div class="col-md-4 well aside">
+  <hr>
 
-    <h4><%= link_to "Add A New Comment", "/updates/new" %></h4>
-
-  </div>
-
-  <div class="col-md-4 well aside">
-
-    <h4>Contractor Comments</h4>
-
-      <ul>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-      </ul>
-
-  </div>
-
-  <HR>
-
-  <div class="col-md-4 well aside">
-
-    <h4>Client Comments</h4>
-
-      <ul>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-        <li>Comment</li>
-      </ul>
-  </div>
-
-</div>
-
-<hr>
+  <% end %>
 
 <% end %>
