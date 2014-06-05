@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604233515) do
+ActiveRecord::Schema.define(version: 20140605040034) do
 
   create_table "gantts", force: true do |t|
     t.string   "gantt_url"
     t.datetime "created_at"
-    t.string   "project_name"
+    t.integer  "project_id"
   end
 
   create_table "photos", force: true do |t|
     t.string   "photo_url"
     t.text     "caption"
     t.datetime "created_at"
-    t.string   "project_name"
+    t.integer  "project_id"
   end
 
   create_table "projects", force: true do |t|

@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <% gantts = Gantt.where("project_name" => project["project_name"]) %>
+        <% gantts = Gantt.where("project_id" => project["id"]) %>
         <% gantts = gantts.order("created_at desc").limit(1) %>
         <% gantts.each do |gantt| %>
 
@@ -63,7 +63,7 @@
           <div class="col-md-12">
             <h4><font color="#e44628">Recent Photos: </font></h4>
 
-            <% photos = Photo.where("project_name" => project["project_name"]) %>
+            <% photos = Photo.where("project_id" => project["id"]) %>
             <% photos = photos.order("created_at desc").limit(5) %>
             <% photos.each do |photo| %>
                 <% if cookies["account_type"] == "admin" then %>
@@ -102,8 +102,9 @@
             <% project_update_user = User.find_by("id" => projectupdate["user_id"]) %>
 
             <li>
-              <%= project_update_user["name"] %> - "<%= projectupdate["summary"] %>" - Made On: <%= projectupdate["created_at"] %>
+              <%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %> - "<%= projectupdate["summary"] %>"
             </li>
+            <hr>
 
           <% end %>
 

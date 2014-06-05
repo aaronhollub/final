@@ -20,13 +20,13 @@ Update:
 
 Gantt:
   - gantt_url: string
-  - project_name: string
+  - project_id: integer
   - created_at: datetime
 
 Photo:
   - photo_url: string
-  - project_name: string
   - caption: text
+  - project_id: integer
   - created_at: datetime
 
 # File:
