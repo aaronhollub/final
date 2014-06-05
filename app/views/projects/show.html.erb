@@ -23,21 +23,27 @@
           <div class="col-md-12">
             <h2><%= project["project_name"] %></h2>
               <% if cookies["account_type"] == "admin" then %>
-                (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+                (<%= link_to "Delete Project", "/projects/#{project["id"]}", "method" => "delete" %>)
                 (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
               <% end %>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-12">
-            <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+          <div class="col-md-2">
+            <h4><font color="#e44628">Address: </font></h4>
+          </div>
+          <div class="col-md-10">
+            <h4><%= project["project_address"] %></h4>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-md-12">
-            <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+          <div class="col-md-2">
+            <h4><font color="#e44628">Summary: </font></h4>
+          </div>
+          <div class="col-md-10">
+            <h4><%= project["summary"] %></h4>
           </div>
         </div>
 
@@ -47,9 +53,9 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h4><font color="#e44628">Project Status: </font></h4>
+              <h4><font color="#e44628">Status: </font></h4>
                 <% if cookies["account_type"] == "admin" then %>
-                  (<%= link_to "Delete", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
+                  (<%= link_to "Delete Gantt", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
                   (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
                   <br>
                 <% end %>
@@ -84,7 +90,7 @@
 
     <div class="col-md-4 well aside">
 
-      <h4><%= link_to "Add A New Comment", "/updates/new" %></h4>
+      <h4><%= link_to "Add A Project Comment or Update", "/updates/new" %></h4>
 
     </div>
 
@@ -104,6 +110,7 @@
             <li>
               <%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %> - "<%= projectupdate["summary"] %>"
             </li>
+
             <hr>
 
           <% end %>

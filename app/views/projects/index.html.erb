@@ -5,52 +5,64 @@
   <% projects = Project.order("created_at desc") %>
 
     <h2>Admin View - All Projects</h2>
+    <hr>
 
   <% else %>
 
     <% projects = Project.where("client_name" => users["client_name"]) %>
     <% projects = projects.order("created_at desc") %>
 
-    <h2>My Projects</h2>
-
 <% end %>
-
-<hr>
 
 <% projects.each do |project| %>
 
-<div class="row">
+  <div class="row">
 
-  <div class="col-md-8">
+    <div class="col-md-12">
 
-      <div class="row">
-        <div class="col-md-12">
-          <h2><%= project["project_name"] %></h2>
-            <% if cookies["account_type"] == "admin" then %>
-              (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
-              (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
-            <% end %>
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%= project["project_name"] %></h2>
+              <% if cookies["account_type"] == "admin" then %>
+                (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
+              <% end %>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Address: </font><%= project["project_address"] %></font></h4>
+        <div class="row">
+          <div class="col-md-1">
+            <h4><font color="#e44628">Address: </font></h4>
+          </div>
+          <div class="col-md-11">
+            <h4><%= project["project_address"] %></h4>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4><font color="#e44628">Summary: </font><%= project["summary"] %></h4>
+        <div class="row">
+          <div class="col-md-1">
+            <h4><font color="#e44628">Summary: </font></h4>
+          </div>
+          <div class="col-md-11">
+            <h4><%= project["summary"] %></h4>
+          </div>
         </div>
-      </div>
 
-      <a href="/projects/<%= project["id"] %>"><button type="button" class="btn btn-info"> View This Project </button></a>
+        <BR>
 
-      <HR>
+        <a href="/projects/<%= project["id"] %>"><button type="button" class="btn btn-info"> View Project </button></a>
+
+          <% if cookies["account_type"] == "admin" then %>
+
+          | <a href="/projects/<%=(project["id"])%>/edit"><button type="button" class="btn btn-info"> Edit Project </button></a>
+
+<!--           <a href="/projects/<%=(project["id"])%>"><button type="button" method="delete" class="btn btn-info"> Delete Project </button></a> -->
+
+          <% end %>
+
+        <HR>
+
+    </div>
 
   </div>
-
-</div>
 
 <% end %>
