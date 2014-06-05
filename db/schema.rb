@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605040034) do
+ActiveRecord::Schema.define(version: 20140605210110) do
 
   create_table "gantts", force: true do |t|
     t.string   "gantt_url"
@@ -42,11 +42,12 @@ ActiveRecord::Schema.define(version: 20140605040034) do
   end
 
   create_table "users", force: true do |t|
-    t.string "username"
-    t.string "password"
-    t.string "name"
-    t.string "account_type"
-    t.string "client_name"
+    t.string   "username"
+    t.string   "password"
+    t.string   "name"
+    t.string   "account_type"
+    t.string   "client_name"
+    t.datetime "created_at"
   end
 
 end

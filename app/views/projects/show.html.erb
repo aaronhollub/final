@@ -11,7 +11,7 @@
 
   <% if user_client_id != project_client_id and cookies["account_type"] != "admin" %>
 
-    <h4><%= "You Are Not Authorized To Access This Content" %><h4>
+    <h4 class="text-warning" align="center"><%= "You Are Not Authorized To View This Content!" %><h4>
 
   <% else %>
 
@@ -21,17 +21,17 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h2><%= project["project_name"] %></h2>
-              <% if cookies["account_type"] == "admin" then %>
-                (<%= link_to "Delete Project", "/projects/#{project["id"]}", "method" => "delete" %>)
-                (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
-              <% end %>
+            <h2 class="project-header"><%= project["project_name"] %></h2>
+            <% if cookies["account_type"] == "admin" then %>
+              (<%= link_to "Delete Project", "/projects/#{project["id"]}", "method" => "delete" %>)
+              (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
+            <% end %>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-2">
-            <h4><font color="#e44628">Address: </font></h4>
+            <h4 class="project-sub-header">Address:</h4>
           </div>
           <div class="col-md-10">
             <h4><%= project["project_address"] %></h4>
@@ -40,7 +40,7 @@
 
         <div class="row">
           <div class="col-md-2">
-            <h4><font color="#e44628">Summary: </font></h4>
+            <h4 class="project-sub-header">Summary:</h4>
           </div>
           <div class="col-md-10">
             <h4><%= project["summary"] %></h4>
@@ -53,7 +53,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <h4><font color="#e44628">Status: </font></h4>
+              <h4 class="project-sub-header">Status:</h4>
                 <% if cookies["account_type"] == "admin" then %>
                   (<%= link_to "Delete Gantt", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
                   (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
@@ -67,7 +67,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h4><font color="#e44628">Recent Photos: </font></h4>
+            <h4 class="project-sub-header">Recent Photos:</h4>
 
             <% photos = Photo.where("project_id" => project["id"]) %>
             <% photos = photos.order("created_at desc").limit(5) %>
@@ -77,7 +77,7 @@
                   (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
                   <br>
                 <% end %>
-              <%= image_tag(photo["photo_url"], :width => 375) %>
+              <%= image_tag(photo["photo_url"], :width => 220) %>
               <%= photo["caption"] %>
               <br><br>
 
@@ -88,15 +88,17 @@
 
     </div>
 
+    <BR>
+
     <div class="col-md-4 well aside">
 
-      <h4><%= link_to "Add A Project Comment or Update", "/updates/new" %></h4>
+      <h4><%= link_to "Add Comment or Update", "/updates/new" %></h4>
 
     </div>
 
     <div class="col-md-4 well aside">
 
-      <h4>Project Comments & Updates</h4>
+      <div class="side-bar-header"><h4>Project Comments & Updates</h4></div>
 
         <% projectupdates = Update.where("project_id" => projectsid) %>
         <% projectupdates = projectupdates.order("created_at desc").limit(10) %>
@@ -108,7 +110,7 @@
             <% project_update_user = User.find_by("id" => projectupdate["user_id"]) %>
 
             <li>
-              <%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %> - "<%= projectupdate["summary"] %>"
+              <div class="comments"><%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %></div> "<%= projectupdate["summary"] %>"
             </li>
 
             <hr>

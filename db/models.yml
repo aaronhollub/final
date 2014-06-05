@@ -4,6 +4,7 @@ User:
   - name: string
   - account_type: string
   - client_name: string
+  - created_at: datetime
 
 Project:
   - project_name: string
@@ -28,9 +29,3 @@ Photo:
   - caption: text
   - project_id: integer
   - created_at: datetime
-
-# File:
-#   - file_url: string
-#   - summary: text
-#   - project_id: integer
-#   - created_at: datetime

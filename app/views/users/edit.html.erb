@@ -14,7 +14,7 @@
 
       <div class="form-group">
         <%= label_tag "password", "Password" %>
-        <%= text_field_tag "password", the_user["password"], "class" => "form-control" %>
+        <%= password_field_tag "password", the_user["password"], "class" => "form-control" %>
       </div>
 
       <div class="form-group">
@@ -22,7 +22,7 @@
         <%= text_field_tag "name", the_user["name"], "class" => "form-control" %>
       </div>
 
-      <%= submit_tag "Save Changes", "class" => "btn btn-lg btn-success" %> or <%= link_to "Cancel", "/" %>
+      <%= submit_tag "Save Changes", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/" %>
 
     </form>
 </div>

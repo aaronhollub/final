@@ -4,9 +4,6 @@
 
   <% projects = Project.order("created_at desc") %>
 
-    <h2>Admin View - All Projects</h2>
-    <hr>
-
   <% else %>
 
     <% projects = Project.where("client_name" => users["client_name"]) %>
@@ -22,7 +19,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <h2><%= project["project_name"] %></h2>
+            <h2 class="project-header"><%= project["project_name"] %></h2>
               <% if cookies["account_type"] == "admin" then %>
                 (<%= link_to "Delete", "/projects/#{project["id"]}", "method" => "delete" %>)
               <% end %>
@@ -31,7 +28,7 @@
 
         <div class="row">
           <div class="col-md-1">
-            <h4><font color="#e44628">Address: </font></h4>
+            <h4 class="project-sub-header">Address:</h4>
           </div>
           <div class="col-md-11">
             <h4><%= project["project_address"] %></h4>
@@ -40,7 +37,7 @@
 
         <div class="row">
           <div class="col-md-1">
-            <h4><font color="#e44628">Summary: </font></h4>
+            <h4 class="project-sub-header">Summary:</h4>
           </div>
           <div class="col-md-11">
             <h4><%= project["summary"] %></h4>
@@ -55,9 +52,9 @@
 
           | <a href="/projects/<%=(project["id"])%>/edit"><button type="button" class="btn btn-info"> Edit Project </button></a>
 
-<!--           <a href="/projects/<%=(project["id"])%>"><button type="button" method="delete" class="btn btn-info"> Delete Project </button></a> -->
-
           <% end %>
+
+          | <a href="https://www.google.com/maps/search/<%=(project["project_address"])%>"><button type="button" class="btn btn-info"> View in Google Maps </button></a>
 
         <HR>
 

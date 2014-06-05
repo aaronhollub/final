@@ -1,6 +1,7 @@
 <% if cookies["account_type"] == "admin" then %>
 
 <% gantt = Gantt.find_by("id" => params["id"]) %>
+<% the_project = Project.find_by("id" => gantt["project_id"]) %>
 
 <h2>Edit Gantt Chart For: <%= gantt["project_name"] %></h2>
 
@@ -20,13 +21,13 @@
     </div>
   </div>
 
-  <%= submit_tag %> or <%= link_to "Cancel", "/admin" %>
+  <%= submit_tag %> or <%= link_to "Cancel", "/projects/#{the_project["id"]}"%>
 
 </form>
 
 <% else %>
 
-  <h3><%= "You are not authorized to view this page. Please go back" %></h3>
+  <h4 class="text-warning" align="center"><%= "You Are Not Authorized To View This Content!" %></h4>
 
 <% end %>
 
