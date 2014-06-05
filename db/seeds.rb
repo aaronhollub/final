@@ -1,5 +1,6 @@
 User.delete_all
-User.create("username" => "aaronhollub", "password" => "homes", "name" => "Aaron Hollub", "account_type" => "admin", "client_name" => "Hollub Family")
+User.create("username" => "aaronhollub", "password" => "homes", "name" => "Aaron Hollub", "account_type" => "admin", "client_name" => "Administrator")
+User.create("username" => "harryhollub", "password" => "hollubhomes", "name" => "Harry Hollub", "account_type" => "client", "client_name" => "Hollub Family")
 User.create("username" => "matthewburke", "password" => "custom", "name" => "Matthew Burke", "account_type" => "client", "client_name" => "Burke Family")
 User.create("username" => "mauraweigel", "password" => "luxury", "name" => "Maura Weigel", "account_type" => "client", "client_name" => "Weigel Family")
 
@@ -17,3 +18,5 @@ Photo.delete_all
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/17/exterior%201.jpg", "project_name" => "Hollub Family New Residence" ,"caption" => "Front Entrance")
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/17/interior%202.jpg", "project_name" => "Hollub Family New Residence" ,"caption" => "Family Room")
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/5/2.jpg", "project_name" => "Hollub Family Sarasota Condo Renovation" ,"caption" => "Key West Bedroom")
+
+Update.delete_all

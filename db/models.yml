@@ -12,11 +12,11 @@ Project:
   - client_name: string
   - created_at: datetime
 
-# Update:
-#   - summary: text
-#   - project_name: string
-#   - user_id: integer
-#   - created_at: datetime
+Update:
+  - summary: text
+  - project_id: integer
+  - user_id: integer
+  - created_at: datetime
 
 Gantt:
   - gantt_url: string

@@ -90,38 +90,28 @@
 
     <div class="col-md-4 well aside">
 
-      <h4>Contractor Comments</h4>
+      <h4>Project Comments & Updates</h4>
 
-        <ul>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
+        <% projectupdates = Update.where("project_id" => projectsid) %>
+        <% projectupdates = projectupdates.order("created_at desc").limit(10) %>
+
+          <ul>
+
+          <% projectupdates.each do |projectupdate| %>
+
+            <% project_update_user = User.find_by("id" => projectupdate["user_id"]) %>
+
+            <li>
+              <%= project_update_user["name"] %> - "<%= projectupdate["summary"] %>" - Made On: <%= projectupdate["created_at"] %>
+            </li>
+
+          <% end %>
+
         </ul>
 
     </div>
 
     <HR>
-
-    <div class="col-md-4 well aside">
-
-      <h4>Client Comments</h4>
-
-        <ul>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-          <li>Comment</li>
-        </ul>
-    </div>
-
-  </div>
-
-  <hr>
 
   <% end %>
 
