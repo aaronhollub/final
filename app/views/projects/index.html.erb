@@ -44,6 +44,15 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-1">
+            <h4 class="project-sub-header">Added:</h4>
+          </div>
+          <div class="col-md-11">
+            <h4><%= project.created_at.strftime("%b %d, %y") %></h4>
+          </div>
+        </div>
+
         <BR>
 
         <a href="/projects/<%= project["id"] %>"><button type="button" class="btn btn-info"> View Project </button></a>

@@ -8,27 +8,27 @@
     <%= form_tag "/users", "method" => "post"  %>
 
       <div class="form-group">
-        <%= label_tag "username", "Choose a Username:" %>
+        <div class="section-sub-header"><%= label_tag "username", "Username:" %></div>
         <%= text_field_tag "username", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "password", "Password:" %>
+        <div class="section-sub-header"><%= label_tag "password", "Password:" %></div>
         <%= password_field_tag "password", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "name", "User's Name:" %>
+        <div class="section-sub-header"><%= label_tag "name", "Your Name:" %></div>
         <%= text_field_tag "name", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "account_type", "Account Type:" %>
+        <div class="section-sub-header"><%= label_tag "account_type", "Account Type:" %></div>
         <%= select_tag "account_type", options_for_select([["Select An Account Type", ""], "Client", "Adminstrator"]), "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "family_name", "Family Name:" %>
+        <div class="section-sub-header"><%= label_tag "family_name", "Family Name:" %></div>
         <%= select_tag "family_name", options_from_collection_for_select(Family.read.order("family_name"), "family_name", "family_name"), "class" => "form-control" %>
       </div>
 

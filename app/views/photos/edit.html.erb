@@ -3,7 +3,7 @@
 <% photo = Photo.find_by("id" => params["id"]) %>
 <% the_project = Project.find_by("id" => photo["project_id"]) %>
 
-<h2>Edit Photo Information</h2>
+<h2 class="section-header">Edit Photo</h2>
 
 <%= form_tag "/photos/#{photo["id"]}", "method" => "patch" %>
 
@@ -28,10 +28,9 @@
     </div>
   </div>
 
-  <%= submit_tag %> or <%= link_to "Cancel", "/projects/#{the_project["id"]}" %>
+  <%= submit_tag "Save Changes", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/projects/#{the_project["id"]}" %>
 
 </form>
-
 
 <% else %>
 

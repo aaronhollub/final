@@ -1,4 +1,4 @@
-<h2>Create New Family Account</h2>
+<h2 class="section-header">Create New Family Account</h2>
 
 <div class="row">
   <div class="col-md-5">
@@ -8,7 +8,7 @@
     <%= form_tag "/families", "method" => "post"  %>
 
       <div class="form-group">
-        <%= label_tag "family_name", "Family's Name: eg. Hollub Family" %>
+        <div class="section-sub-header"><%= label_tag "family_name", "Family's Name: Ex. Hollub Family" %></div>
         <%= text_field_tag "family_name", "", "class" => "form-control" %>
       </div>
 

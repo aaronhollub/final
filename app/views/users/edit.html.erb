@@ -8,21 +8,21 @@
     <%= form_tag "/users/#{the_user['id']}", "method" => "patch"  %>
 
       <div class="form-group">
-        <%= label_tag "username", "Choose a username:" %>
+        <div class="section-sub-header"><%= label_tag "username", "Username:" %></div>
         <%= text_field_tag "username", the_user["username"], "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "password", "Password" %>
+        <div class="section-sub-header"><%= label_tag "password", "Password:" %></div>
         <%= password_field_tag "password", the_user["password"], "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "name", "What's your name?" %>
+        <div class="section-sub-header"><%= label_tag "name", "Your Name:" %></div>
         <%= text_field_tag "name", the_user["name"], "class" => "form-control" %>
       </div>
 
-      <%= submit_tag "Save Changes", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/" %>
+      <%= submit_tag "Save Changes", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/users/#{the_user["id"]}" %>
 
     </form>
 </div>
