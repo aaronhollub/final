@@ -2,6 +2,7 @@
 
 <% the_user = User.read(params["id"]) %>
 <% the_user_id = the_user["id"] %>
+<% the_family = Family.find_by("id" => the_user["family_id"]) %>
 
 <div class="row">
 
@@ -25,7 +26,16 @@
         </div>
       </div>
 
-       <div class="row">
+     <div class="row">
+        <div class="col-md-2">
+          <h4><font color="#e44628">Member Of: </font></h4>
+        </div>
+        <div class="col-md-10">
+          <h4><%= the_family["family_name"] %></h4>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-md-2">
           <h4><font color="#e44628">Joined: </font></h4>
         </div>

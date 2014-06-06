@@ -29,6 +29,23 @@ Rails.application.routes.draw do
   # --- Delete
   delete "/users/:id" => 'users#destroy'
 
+  # Resource: Families
+
+  # --- Create
+  get "/families/new" => 'families#new'
+  post "/families" => 'families#create'
+
+  # --- Read
+  get "/families" => 'families#index'
+  get "/families/:id" => 'families#show'
+
+  # -- Update
+  get "/families/:id/edit" => 'families#edit'
+  patch "/families/:id" => 'families#update'
+
+  # --- Delete
+  delete "/families/:id" => 'families#destroy'
+
     # Resource: Projects
 
   # --- Create

@@ -1,3 +1,6 @@
+Family:
+  - family_name: string
+
 User:
   - username: string
   - password: string
@@ -5,6 +8,7 @@ User:
   - account_type: string
   - client_name: string
   - created_at: datetime
+  - family_id: integer
 
 Project:
   - project_name: string

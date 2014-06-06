@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605210110) do
+ActiveRecord::Schema.define(version: 20140605235948) do
+
+  create_table "families", force: true do |t|
+    t.string "family_name"
+  end
 
   create_table "gantts", force: true do |t|
     t.string   "gantt_url"
@@ -48,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140605210110) do
     t.string   "account_type"
     t.string   "client_name"
     t.datetime "created_at"
+    t.integer  "family_id"
   end
 
 end

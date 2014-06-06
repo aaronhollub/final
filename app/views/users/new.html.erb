@@ -8,19 +8,34 @@
     <%= form_tag "/users", "method" => "post"  %>
 
       <div class="form-group">
-        <%= label_tag "username", "Choose a username:" %>
+        <%= label_tag "username", "Choose a Username:" %>
         <%= text_field_tag "username", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag "password", "Password" %>
+        <%= label_tag "password", "Password:" %>
         <%= password_field_tag "password", "", "class" => "form-control" %>
 
       </div>
 
       <div class="form-group">
-        <%= label_tag "name", "What's your name?" %>
+        <%= label_tag "name", "User's Name:" %>
         <%= text_field_tag "name", "", "class" => "form-control" %>
+      </div>
+
+<!--       <div class="form-group">
+        <%= label_tag "account_type", "Account Type:" %>
+        <%= text_field_tag "account_type", "", "class" => "form-control" %>
+      </div> -->
+
+      <div class="form-group">
+        <%= label_tag "account_type", "Account Type:" %>
+        <%= select_tag "account_type", options_for_select([["Select An Account Type", ""], "Client", "Adminstrator"]), "class" => "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag "family_name", "Family Name:" %>
+        <%= select_tag "family_name", options_from_collection_for_select(Family.read.order("family_name"), "family_name", "family_name"), "class" => "form-control" %>
       </div>
 
       <%= submit_tag "Create Account", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/" %>
