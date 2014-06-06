@@ -1,32 +1,33 @@
 <% if cookies["account_type"] == "admin" then %>
 
-<h2>Administrator Console</h2>
+  <h2 class="section-header">Administrator Console</h2>
 
-<a href="/families/new"><button type="button" class="btn btn-info"> Add New Family </button></a>
+  <BR>
 
-|
+  <a href="/families/new"><button type="button" class="btn btn-success"> Add New Family </button></a>
 
-<a href="/users/new"><button type="button" class="btn btn-info"> Add New User </button></a>
+  |
 
+  <a href="/users/new"><button type="button" class="btn btn-success"> Add New User </button></a>
 
-|
+  |
 
-<a href="/projects"><button type="button" class="btn btn-info"> View All Projects </button></a>
+  <a href="/projects/new"><button type="button" class="btn btn-success"> Add New Project </button></a>
 
-|
+  |
 
-<a href="/projects/new"><button type="button" class="btn btn-info"> Create New Project </button></a>
+  <a href="/gantts/new"><button type="button" class="btn btn-success"> Add Gantt Chart </button></a>
 
-|
+  |
 
-<a href="/gantts/new"><button type="button" class="btn btn-info"> Add Gantt Chart </button></a>
+  <a href="/photos/new"><button type="button" class="btn btn-success"> Add Photo </button></a>
 
-|
+  <BR><BR>
 
-<a href="/photos/new"><button type="button" class="btn btn-info"> Add Photo </button></a>
+  <a href="/projects"><button type="button" class="btn btn-info"> View All Projects </button></a>
 
 <% else %>
 
-  <h3><%= "You are not authorized to view this page. Please go back" %></h3>
+  <h4 class="text-warning" align="center"><%= "You Are Not Authorized To View This Content!" %></h4>
 
 <% end %>

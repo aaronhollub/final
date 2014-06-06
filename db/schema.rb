@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606041659) do
+ActiveRecord::Schema.define(version: 20140606044352) do
 
   create_table "families", force: true do |t|
     t.string "family_name"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20140606041659) do
     t.string   "project_name"
     t.string   "project_address"
     t.text     "summary"
-    t.string   "client_name"
     t.datetime "created_at"
     t.integer  "family_id"
   end

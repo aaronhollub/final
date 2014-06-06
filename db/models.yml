@@ -14,7 +14,6 @@ Project:
   - project_address: string
   - summary: text
   - family_id: integer
-  - client_name: string
   - created_at: datetime
 
 Update:
