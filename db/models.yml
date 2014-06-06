@@ -6,7 +6,6 @@ User:
   - password: string
   - name: string
   - account_type: string
-  - client_name: string
   - created_at: datetime
   - family_id: integer
 
@@ -14,6 +13,7 @@ Project:
   - project_name: string
   - project_address: string
   - summary: text
+  - family_id: integer
   - client_name: string
   - created_at: datetime
 

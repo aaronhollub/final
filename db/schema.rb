@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605235948) do
+ActiveRecord::Schema.define(version: 20140606041659) do
 
   create_table "families", force: true do |t|
     t.string "family_name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140605235948) do
     t.text     "summary"
     t.string   "client_name"
     t.datetime "created_at"
+    t.integer  "family_id"
   end
 
   create_table "updates", force: true do |t|
@@ -50,7 +51,6 @@ ActiveRecord::Schema.define(version: 20140605235948) do
     t.string   "password"
     t.string   "name"
     t.string   "account_type"
-    t.string   "client_name"
     t.datetime "created_at"
     t.integer  "family_id"
   end

@@ -1,4 +1,4 @@
-<% gantt = Update.find_by("id" => params["id"]) %>
+<% update = Update.find_by("id" => params["id"]) %>
 
 <h2>Edit Your Update></h2>
 
@@ -18,4 +18,4 @@
     </div>
   </div>
  -->
-<%= submit_tag %> or <%= link_to "Cancel", "/admin" %>
+<%= submit_tag %> or <%= link_to "Cancel", "/projects/#{cookies["current_project"]}" %>

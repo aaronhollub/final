@@ -6,7 +6,7 @@
 
   <% else %>
 
-    <% projects = Project.where("client_name" => users["client_name"]) %>
+    <% projects = Project.where("family_id" => users["family_id"]) %>
     <% projects = projects.order("created_at desc") %>
 
 <% end %>
