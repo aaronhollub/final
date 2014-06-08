@@ -25,8 +25,8 @@ Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/17/interior%202.jpg", "project_id" => hollub.id, "caption" => "Family Room")
 Photo.create("photo_url" => "http://hollubhomes.com/site/photo_gallery/pictures/5/2.jpg", "project_id" => weigel.id, "caption" => "Key West Bedroom")
 
-Update.delete_all
-Update.create("summary" => "Hi Harry. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => hollub.id, "user_id" => ah.id)
-Update.create("summary" => "Hi Matt. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => burke.id, "user_id" => ah.id)
-Update.create("summary" => "Hi Maura. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => weigel.id, "user_id" => ah.id)
+Comment.delete_all
+Comment.create("summary" => "Hi Harry. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => hollub.id, "user_id" => ah.id)
+Comment.create("summary" => "Hi Matt. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => burke.id, "user_id" => ah.id)
+Comment.create("summary" => "Hi Maura. Welcome the Client Connection Portal. Please call our office with any questions about how to use this program. Check back often for regular updates, new photos and documents.", "project_id" => weigel.id, "user_id" => ah.id)
 

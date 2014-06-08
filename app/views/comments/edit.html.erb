@@ -1,13 +1,13 @@
-<% update = Update.find_by("id" => params["id"]) %>
+<% comment = Comment.find_by("id" => params["id"]) %>
 
 <h2 class="section-header">Edit Your Update></h2>
 
-<%= form_tag "/updates/#{update["id"]}", "method" => "patch" %>
+<%= form_tag "/comments/#{comment["id"]}", "method" => "patch" %>
 
   <div class="form-group">
     <label class="col-sm-2 control-label">Update</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="summary" value="<%= update["summary"] %>">
+      <input type="text" class="form-control" name="summary" value="<%= comment["summary"] %>">
     </div>
   </div>
 

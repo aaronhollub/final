@@ -16,7 +16,7 @@ Project:
   - family_id: integer
   - created_at: datetime
 
-Update:
+Comment:
   - summary: text
   - project_id: integer
   - user_id: integer
