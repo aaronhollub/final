@@ -2,6 +2,6 @@
 
 Project Name: Hollub Homes - Client Connection Portal
 
-Purpose: The Client Connection Portal is a tool for Hollub Homes' clients, allowing them to access information related to their construction/development project. In addition to showing the address and project summary, users will see a Gantt chart showing the status of their project and all major upcoming to-do items. Users have the ability to post comments related to their project. Similarly, users with adminstrator rights also can post comments to a specific project.
+Purpose: The Client Connection Portal is a tool for Hollub Homes' clients, allowing them to access information related to their construction/development project. In addition to showing the address project summary and photos, users will see a Gantt chart showing the status of their project and all major upcoming to-do items. Users have the ability to post comments related to their project. Similarly, users with adminstrator rights also can post comments to a specific project.
 
 Administrator Access: Admins have the ability to view all projects and comment on all projects. For privacy reasons, ONLY admins have the ability to add a new user to the database. Admins also have access to the ADMIN CONSOLE which gives them enhanced functionality to add/edit/delete/view projects and photos.
