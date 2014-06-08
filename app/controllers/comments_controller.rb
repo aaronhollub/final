@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     redirect_to "/", :notice => "Comment Deleted"
   end
 
-  # Receive form submitted from /updates/new
+  # Receive form submitted from /comments/new
   def create
     user = cookies["user_id"]
     the_project = cookies["current_project"]
@@ -15,10 +15,11 @@ class CommentsController < ApplicationController
     redirect_to "/projects", :notice => "Comment Added"
   end
 
-  # Receive form submitted from /updates/edit
+  # Receive form submitted from /comments/edit
   def update
+    user = cookies["user_id"]
     comment = Comment.find_by("id" => params["id"])
-    comment.update("summary" => params["summary"], "project_id" => params["project_id"], "user_id" => "user")
+    comment.update("summary" => params["summary"], "project_id" => params["project_id"], "user_id" => user)
     redirect_to "/projects", :notice => "Comment Updated"
   end
 

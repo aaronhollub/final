@@ -32,7 +32,7 @@
         <%= select_tag "family_name", options_from_collection_for_select(Family.read.order("family_name"), "family_name", "family_name"), "class" => "form-control" %>
       </div>
 
-      <%= submit_tag "Create Account", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/" %>
+      <%= submit_tag "Create Account", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/admin" %>
 
     </form>
 </div>

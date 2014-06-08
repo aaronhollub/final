@@ -23,8 +23,8 @@
           <div class="col-md-12">
             <h2 class="project-header"><%= project["project_name"] %></h2>
             <% if cookies["account_type"] == "admin" then %>
-              (<%= link_to "Delete Project", "/projects/#{project["id"]}", "method" => "delete" %>)
               (<%= link_to "Edit Project", "/projects/#{project["id"]}/edit" %>)
+              (<%= link_to "Delete Project", "/projects/#{project["id"]}", "method" => "delete" %>)
             <% end %>
           </div>
         </div>
@@ -55,8 +55,8 @@
             <div class="col-md-12">
               <h4 class="project-sub-header">Status:</h4>
                 <% if cookies["account_type"] == "admin" then %>
-                  (<%= link_to "Delete Gantt", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
                   (<%= link_to "Edit Gantt", "/gantts/#{gantt["id"]}/edit" %>)
+                  (<%= link_to "Delete Gantt", "/gantts/#{gantt["id"]}", "method" => "delete" %>)
                   <br>
                 <% end %>
                 <%= image_tag(gantt["gantt_url"], :width => 660) %>
@@ -73,8 +73,8 @@
             <% photos = photos.order("created_at desc").limit(5) %>
             <% photos.each do |photo| %>
                 <% if cookies["account_type"] == "admin" then %>
+                  (<%= link_to "Edit", "/photos/#{photo["id"]}/edit" %>)
                   (<%= link_to "Delete", "/photos/#{photo["id"]}", "method" => "delete" %>)
-                  (<%= link_to "Edit Photo", "/photos/#{photo["id"]}/edit" %>)
                   <br>
                 <% end %>
               <%= image_tag(photo["photo_url"], :width => 220) %>
@@ -110,7 +110,8 @@
             <% project_update_user = User.find_by("id" => projectupdate["user_id"]) %>
 
             <li>
-              <div class="comments"><%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %></div> "<%= projectupdate["summary"] %>"
+              <div class="comments"><%= project_update_user["name"] %>, <%= projectupdate.created_at.strftime("%b-%d") %></div> "<%= projectupdate["summary"] %>" (<%= link_to "Edit", "/comments/#{projectupdate["id"]}/edit" %>) (<%= link_to "Delete", "/comments/#{projectupdate["id"]}", "method" => "delete" %>)
+
             </li>
 
             <hr>

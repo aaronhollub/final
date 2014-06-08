@@ -1,6 +1,6 @@
 <% comment = Comment.find_by("id" => params["id"]) %>
 
-<h2 class="section-header">Edit Your Update></h2>
+<h2 class="section-header">Edit Your Update</h2>
 
 <%= form_tag "/comments/#{comment["id"]}", "method" => "patch" %>
 
@@ -18,4 +18,4 @@
     </div>
   </div>
  -->
-<%= submit_tag %> or <%= link_to "Cancel", "/projects/#{cookies["current_project"]}" %>
+<%= submit_tag "Save Changes", "class" => "btn btn btn-success" %> or <%= link_to "Cancel", "/projects/#{cookies["current_project"]}" %>

@@ -1,8 +1,9 @@
-<% the_project= Project.read(params["id"]) %>
+<% the_project = Project.read(params["id"]) %>
+<% the_family = Family.find_by("id" => the_project["family_id"]) %>
 
 <h2 class="project-header">Edit Project - <%= the_project["project_name"] %></h2>
 
-<br>
+<BR>
 
 <%= form_tag "/projects/#{the_project['id']}", "method" => "patch"  %>
 
@@ -30,7 +31,7 @@
 <div class="form-group">
   <label class="col-sm-2 control-label">Family Name</label>
   <div class="col-sm-10">
-    <%= select_tag "family_name", options_from_collection_for_select(Family.read.order(""), "family_name", "family_name"), "class" => "form-control" %>
+    <%= select_tag "family_name", options_from_collection_for_select(Family.read.order(""), "family_name", "family_name", the_family[:family_name]), "class" => "form-control" %>
   </div>
 </div>
 
